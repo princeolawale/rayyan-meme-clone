@@ -43,51 +43,74 @@ export default function Home() {
         </nav>
 
         {/* Hero Section */}
-        <section id="home" className="relative min-h-screen flex items-center justify-center px-4">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <div className="text-center md:text-left">
-              <h1 className="text-6xl md:text-7xl font-black text-white mb-4 leading-tight">
-                THE ONLY<br />
-                <span className="text-red-500">OFFICIAL</span><br />
-                <span className="text-yellow-400">$RAYYAN</span><br />
-                <span className="text-white">MEME</span>
-              </h1>
-              <div className="mt-8 mb-6">
-                <p className="text-xl text-white mb-2">Join the Rayyan Community.</p>
-                <p className="text-xl text-white">This is History in the Making!</p>
+        <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0">
+            <Image
+              src={heroImage}
+              alt="Background"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-slate-900/60 to-blue-950/50"></div>
+            {/* Decorative Elements */}
+            <div className="absolute inset-0 bg-slate-900/10 backdrop-blur-[1px]"></div>
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-900 to-transparent"></div>
+          </div>
+
+          <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-32">
+            <div className="max-w-3xl mx-auto text-center">
+              {/* Main Content */}
+              <div className="space-y-6 mb-12 backdrop-blur-[2px] py-4">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tight">
+                  THE ONLY<br />
+                  <span className="text-red-500 drop-shadow-lg">OFFICIAL</span><br />
+                  <span className="text-yellow-400 drop-shadow-lg">$RAYYAN</span><br />
+                  <span className="text-white drop-shadow-lg">MEME</span>
+                </h1>
+                <div className="space-y-3">
+                  <p className="text-xl sm:text-2xl text-white font-medium drop-shadow-lg">Join the Rayyan Community.</p>
+                  <p className="text-xl sm:text-2xl text-white font-medium drop-shadow-lg">This is History in the Making!</p>
+                </div>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8">
-                <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors">
-                  BUY NOW WITH CRYPTO
+
+              {/* CTA Button */}
+              <div className="mb-12">
+                <button className="bg-red-600 hover:bg-red-700 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_40px_rgba(220,38,38,0.3)] relative group backdrop-blur-sm">
+                  <span className="relative z-10">BUY NOW WITH CRYPTO</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
               </div>
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 mb-6 max-w-lg border border-slate-700/50 shadow-lg hover:border-slate-600/50 transition-all duration-300">
-                <h3 className="text-white text-lg font-semibold mb-4 flex items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+              {/* Contract Address Card */}
+              <div className="bg-slate-800/30 backdrop-blur-md rounded-2xl p-8 max-w-2xl mx-auto border border-slate-700/50 shadow-[0_0_50px_rgba(0,0,0,0.2)] hover:border-slate-600/50 transition-all duration-300">
+                <h3 className="text-white text-lg font-semibold mb-6 flex items-center justify-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   Verified Contract Address
                 </h3>
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                  <div className="flex-1 bg-slate-900/50 rounded-lg p-3 w-full">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="bg-yellow-400 text-black text-xs px-2 py-0.5 rounded-full font-semibold">SOL</span>
-                      <span className="text-slate-400 text-xs">Contract Address</span>
+                <div className="flex flex-col gap-6">
+                  <div className="bg-slate-900/40 rounded-xl p-6">
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                      <span className="bg-yellow-400 text-black text-sm px-3 py-1 rounded-full font-semibold">SOL</span>
+                      <span className="text-slate-300">Official Contract Address</span>
                     </div>
-                    <span className="text-yellow-400 font-mono text-sm break-all select-all block">
+                    <span className="text-yellow-400 font-mono text-lg break-all select-all block text-center">
                       {contractAddress}
                     </span>
                   </div>
                   <button 
                     onClick={() => copyToClipboard(contractAddress)}
-                    className="bg-red-600 hover:bg-red-700 text-white px-4 py-2.5 rounded-lg text-sm transition-all duration-300 flex items-center gap-2 group relative"
+                    className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl text-base transition-all duration-300 flex items-center justify-center gap-3 group relative mx-auto backdrop-blur-sm"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
                     </svg>
-                    Copy
+                    Copy Contract Address
                     {copySuccess && (
-                      <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs py-1 px-2 rounded whitespace-nowrap">
+                      <span className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm py-1.5 px-3 rounded-lg whitespace-nowrap">
                         {copySuccess}
                       </span>
                     )}
@@ -95,20 +118,11 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <div className="relative">
-                <Image
-                  src={heroImage}
-                  alt="Rayyan Hero"
-                  className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
-                  priority
-                />
-                <div className="absolute top-4 right-4 bg-yellow-400 text-black px-4 py-2 rounded-lg font-bold transform rotate-12">
-                  "Celebrate Our Win & Have Fun!"
-                </div>
-              </div>
-            </div>
           </div>
+
+          {/* Decorative Circles */}
+          <div className="absolute top-1/4 left-10 w-72 h-72 bg-red-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
         </section>
 
         {/* Special Community Section */}
