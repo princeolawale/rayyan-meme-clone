@@ -5,7 +5,6 @@ import { useState } from 'react'
 import heroImage from '@/assets/hero.jpeg'
 
 export default function Home() {
-  const contractAddress = "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN"
   const [copySuccess, setCopySuccess] = useState<string | null>(null);
   
   const copyToClipboard = async (text: string) => {
@@ -85,36 +84,19 @@ export default function Home() {
 
               {/* Contract Address Card */}
               <div className="bg-slate-800/30 backdrop-blur-md rounded-2xl p-8 max-w-2xl mx-auto border border-slate-700/50 shadow-[0_0_50px_rgba(0,0,0,0.2)] hover:border-slate-600/50 transition-all duration-300">
-                <h3 className="text-white text-lg font-semibold mb-6 flex items-center justify-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <h3 className="text-white text-2xl font-bold mb-6 flex items-center justify-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Verified Contract Address
+                  Contract Address
                 </h3>
                 <div className="flex flex-col gap-6">
-                  <div className="bg-slate-900/40 rounded-xl p-6">
+                  <div className="bg-slate-900/40 rounded-xl p-8">
                     <div className="flex items-center justify-center gap-3 mb-4">
-                      <span className="bg-yellow-400 text-black text-sm px-3 py-1 rounded-full font-semibold">SOL</span>
-                      <span className="text-slate-300">Official Contract Address</span>
+                      <span className="bg-yellow-400 text-black text-lg px-4 py-1.5 rounded-full font-bold">COMING SOON</span>
                     </div>
-                    <span className="text-yellow-400 font-mono text-lg break-all select-all block text-center">
-                      {contractAddress}
-                    </span>
+                    <p className="text-slate-300 text-center text-lg">Stay tuned for the official contract address reveal!</p>
                   </div>
-                  <button 
-                    onClick={() => copyToClipboard(contractAddress)}
-                    className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl text-base transition-all duration-300 flex items-center justify-center gap-3 group relative mx-auto backdrop-blur-sm"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
-                    </svg>
-                    Copy Contract Address
-                    {copySuccess && (
-                      <span className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm py-1.5 px-3 rounded-lg whitespace-nowrap">
-                        {copySuccess}
-                      </span>
-                    )}
-                  </button>
                 </div>
               </div>
             </div>
@@ -220,11 +202,11 @@ export default function Home() {
                 </div>
                 <div className="bg-slate-900/50 rounded-xl p-6 w-full">
                   <span className="text-yellow-400 font-mono text-lg break-all text-center block select-all">
-                    {contractAddress}
+                    {/* This section is now showing "COMING SOON" */}
                   </span>
                 </div>
                 <button 
-                  onClick={() => copyToClipboard(contractAddress)}
+                  onClick={() => copyToClipboard("COMING SOON")}
                   className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-3 group relative"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -248,7 +230,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="flex items-center space-x-4 mb-6 md:mb-0">
                 <a
-                  href="https://x.com/RayyanMemes"
+                  href="https://x.com/realrayyanmeme"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-80 transition-opacity"
