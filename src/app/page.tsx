@@ -220,11 +220,11 @@ export default function Home() {
                 </div>
                 <div className="bg-slate-900/50 rounded-xl p-6 w-full">
                   <span className="text-yellow-400 font-mono text-lg break-all text-center block select-all">
-                    {/* This section is now showing "COMING SOON" */}
+                    {contractAddress}
                   </span>
                 </div>
                 <button 
-                  onClick={() => copyToClipboard("COMING SOON")}
+                  onClick={() => copyToClipboard(contractAddress)}
                   className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-3 group relative"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
